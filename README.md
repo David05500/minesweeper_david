@@ -18,7 +18,7 @@ In order to solve this problem I firstly broke it down into stages:
 
 About the game: 
 
-I create x amount of divs when button start is pressed then I give each div class (col and row).
+	I create x amount of divs when button start is pressed then I give each div class (col and row).
 
 	To gernerate bombs:
 	- I check what level of difficulty player has seclected, then
@@ -42,7 +42,7 @@ I create x amount of divs when button start is pressed then I give each div clas
 
 
 
-	All I needed for this project is to listen out for events and then update the page dynamicaly depending on a triggered event. Therefore I chose JS for its simplicity in installing and starting a project. All you need is an html file, js file and you are ready to go in less than a minute. Also this game is very simple and doesnt require a database or components in my opition. Unless its required by a client.
+All I needed for this project is to listen out for events and then update the page dynamicaly depending on a triggered event. Therefore I chose JS for its simplicity in installing and starting a project. All you need is an html file, js file and you are ready to go in less than a minute. Also this game is very simple and doesnt require a database or components in my opition. Unless its required by a client.
 
-	In conclusion I think my attempt was a success. All the required features work but I dont have any styling or very minimum. If I had to make it better I would try and group some functions together to make it more tidy and efficient. Also I would need to improve mu user experience and some little bugs. 
+In conclusion I think my attempt was a success. All the required features work but I dont have any styling or very minimum. If I had to make it better I would try and group some functions together to make it more tidy and efficient. Also I would need to improve mu user experience and some little bugs. 
 
