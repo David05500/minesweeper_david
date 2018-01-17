@@ -16,9 +16,11 @@ In order to solve this problem I firstly broke it down into stages:
 		-display results 
 
 
-1 - I create x amount of divs when button start is pressed then I give each div class (col and row).
+About the game: 
 
-2 - To gernerate bombs:
+I create x amount of divs when button start is pressed then I give each div class (col and row).
+
+	To gernerate bombs:
 	- I check what level of difficulty player has seclected, then
 	- (number of columns - difficulty level) * (number of rows - difficulty level) = NUMBER OF BOMB per game, then
 	-loop over created divs untill (NUMBER OF BOMB > 0)
@@ -27,7 +29,7 @@ In order to solve this problem I firstly broke it down into stages:
 		-if both(gen number and index) are prime then add bomb class to this div
 		-NUMBER OF BOMB - 1
 
-3 - To calculate clues:
+	To calculate clues:
 	-to each generated div I gave a class of (col and row)
 	-when a div clicked I get its class list
 	-I worked out numbers/coordinates for neighbouring cells 
