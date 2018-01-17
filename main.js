@@ -2,32 +2,63 @@ $(document).ready(function () {
 
     let btnStart = $("#btnStart");
     let gameBoard = $("#items");
+    let btnRestart = $("#btnRestart");
+    let difficulty = $("#difficulty");
+    let cols = "";
+    let height = "";
+    let difficultyNumber = "";
     let gameStarted = false;
 
     btnStart.click(function() {
 
         if(!gameStarted){
-            gameStarted = true;
-            cols = $("#boardWidth").val();//getting number of colums 
+            
+            cols = $("#boardWidth").val(); //getting number of rows 
+            height = $("#boardHeight").val(); //getting number of columns
+            difficultyNumber = $("#difficulty").val();
 
-            //getting user input on size of the grid
-            let height = $("#boardHeight").val();
-            let nummberOfCells = height * cols; // finding out how many divs I would need
-            numberOfBombs = (height - 2) * (cols - 2); // number of bombs per round
-            console.log(numberOfBombs);
+            //validating inputs
+            if ((height > 10) || (cols > 10) || (difficulty == "select")){
+                alert("Please fill in all the fields. Board cant exceed 10x10");
+                window.location.reload();
 
-            //adding all the requierd divs with class 'item'
-            for (i=1; i <= nummberOfCells; i++) {
-                let newDiv = document.createElement("div")
-                newDiv.setAttribute("class", "item");
+                //checking sleceted difficulty level
+            }else{
+                gameStarted = true;
+                let nummberOfCells = height * cols; // finding out how many divs I would need
+                let level = 0;
 
-                $("#items")[0].appendChild(newDiv);
+                switch(difficultyNumber){
+                    case "easy": 
+                        level = 3;
+                    break;
+
+                    case "medium":
+                        level = 2;
+                    break;
+
+                    case "hard":
+                        level = 1;
+                    break;
+                }
+                numberOfBombs = (height - level) * (cols - level); // number of bombs per round
+                console.log("Number of bombs: " + numberOfBombs);
+
+                //creating dvs with class 'item'
+                for (i=1; i <= nummberOfCells; i++) {
+                    let newDiv = document.createElement("div")
+                    newDiv.setAttribute("class", "item");
+
+                    $("#items")[0].appendChild(newDiv);
+                }
+                displayBoard();
             }
-            displayBoard();
-        } else {  
-            //error or ask if player wants to start again 
+        } 
+    });
 
-        }
+    btnRestart.click(function(){
+        window.location.reload();
+
     });
 
     function displayBoard(){
@@ -44,22 +75,22 @@ $(document).ready(function () {
         bombGenerator();
         return;
     }
-
+    //see readMe for details
     function bombGenerator(){
 
         while(numberOfBombs!=0){
 
             $(".item").each((index, el) => {
                 let item = $(el);
-                console.log(numberOfBombs);
                 
                 if (numberOfBombs === 0 ){
                     return false;
                 }else if (!item.hasClass("bomb")){
+                    //get a random number from 1 to 10 then find its prime 
                     let randomNum = Math.floor(Math.random()*10 + 1) % 2;
                     if (randomNum === (index % 2)){
                         item.addClass("bomb");
-                        item.text('b');
+                        item.text('x');
                         numberOfBombs--;
                     }
                 }
@@ -68,10 +99,10 @@ $(document).ready(function () {
         return;
     }
     $("#items").click(function(){
-
         bombCount = 0;
         if($(event.target).hasClass("bomb")){
-            console.log("game over");
+            alert("Game Over");
+            window.location.reload();
         }else{
             let coordinates = event.target.className;
             let clean = coordinates.split(" ").filter(word => (word !== "item"));
@@ -80,13 +111,14 @@ $(document).ready(function () {
             event.target.textContent = bombCount;
         }
     });
+    //see readMe for details
     function checkForBombs(index){
         const x = index[0];
         const y = index[1];
-        let currentX = "Current col-" + x;
-        let currentY = "row-" + y;
-        let currentPosition = currentX.concat(currentY);
-        console.log(currentPosition);
+        // let currentX = "Current col-" + x;
+        // let currentY = "row-" + y;
+        // let currentPosition = currentX.concat(currentY);
+        // console.log(currentPosition);
         let x1 = 0;
         let y1 = 0;
         
@@ -97,7 +129,6 @@ $(document).ready(function () {
                 case 1:
                     x1 = x - 1;
                     y1 = y - 1;
-                    // findElementIsBomb(x1, y1) === false? bombCount=+1 : console.log("its false");
                     findElementIsBomb(x1, y1);
                 break;
 
@@ -147,6 +178,7 @@ $(document).ready(function () {
         return;
 
     }
+    //see readMe for details
     function findElementIsBomb(x, y){
         let col = "col-" + x + " ";
         let row = "row-" + y;

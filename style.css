@@ -1,12 +1,17 @@
 #items {
     position: relative;
+    width: 50%;
+    float: left;
 }
 
 .item {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 1px solid red;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
 }
 
 .col-1 {
@@ -14,28 +19,41 @@
 }
 
 .col-2 {
-    left: 20px;
+    left: 50px;
 }
 
 .col-3 {
-    left: 40px;
-}
-
-.col-4 {
-    left: 60px;
-}
-
-.col-5 {
-    left: 80px;
-}
-
-.col-6 {
     left: 100px;
 }
 
-.col-7 {
-    left: 120px;
+.col-4 {
+    left: 150px;
 }
+
+.col-5 {
+    left: 200px;
+}
+
+.col-6 {
+    left: 250px;
+}
+
+.col-7 {
+    left: 300px;
+}
+
+.col-8 {
+    left: 350px;
+}
+
+.col-9 {
+    left: 400px;
+}
+
+.col-10 {
+    left: 450px;
+}
+
 /*-------------------------------------*/
 
 .row-1 {
@@ -43,25 +61,64 @@
 }
 
 .row-2 {
-    top: 20px;
+    top: 50px;
 }
 
 .row-3 {
-    top: 40px;
-}
-
-.row-4 {
-    top: 60px;
-}
-
-.row-5 {
-    top: 80px;
-}
-
-.row-6 {
     top: 100px;
 }
 
+.row-4 {
+    top: 150px;
+}
+
+.row-5 {
+    top: 200px;
+}
+
+.row-6 {
+    top: 250px;
+}
+
 .row-7 {
-    top: 120px;
+    top: 300px;
+}
+
+.row-8 {
+    top: 350px;
+}
+
+.row-9 {
+    top: 400px;
+}
+
+.row-10 {
+    top: 450px;
+}
+#gameSettings{
+    width: 35%;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+input{
+    display: block;
+    margin-bottom: 2%;
+}
+.bomb{
+    border: 1px solid red;
+}
+select{
+    display: block;
+    margin-bottom: 2%;
+}
+
+img{
+    height: 10%;
+    width: 10%;
+    display: inline-block;
+}
+h1{
+    display: inline-block;
+    font-size: 400%;
 }

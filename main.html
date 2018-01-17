@@ -6,15 +6,33 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body class="container">
-        <div class="page-header">
-            <h1>Make Me A Grid!</h1>
-        </div>
-        <input id="boardWidth" type="number" name="width">
-        <input id="boardHeight" type="number" name="height">
-        <button id="btnStart" >Start</button>
+    <body>
+    	<div class="container">
 
-        <div id="items">
+	        <div class="page-header">
+	            <img src="BOMB.png">
+	            <h1>Good Luck</h1>
+	            <h4>Not more that 10x10!</h4>
+	        </div>
+	        <div id="game">
+		        <div id="gameSettings">
+		        	<label>Number of colums</label>
+			        <input id="boardWidth" type="number" name="width">
+		        	<label>Number of rows</label>
+			        <input id="boardHeight" type="number" name="height">
+			        <select id="difficulty">
+			        	<option value="select">Select difficulty</option>
+			        	<option value="easy">easy</option>
+			        	<option value="medium">medium</option>
+			        	<option value="hard">hard</option>
+			        </select>
+			        <button id="btnStart" >Start</button>
+			        <button id="btnRestart">Restart</button>
+		        </div>
+
+		        <div id="items">
+		        </div>
+	        </div>
         </div>
 
 
